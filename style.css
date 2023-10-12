@@ -1,0 +1,475 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+
+        .menu-toggle.active div:first-child {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active div:last-child {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                align-items: center;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+/* Add this to your existing style.css or create a new one */
+.slider-container {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #f1f1f1;
+    height: auto; /* Set the height to auto */
+    max-height: 300px; /* Set a maximum height for the slider container */
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+    flex: 1;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%; /* Set the image height to 100% */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .slider-container {
+        max-height: 200px; /* Maximum height for screens 768px and below */
+    }
+    
+    .slide {
+        height: 150px; /* Adjust the image height for screens 768px and below */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .slider-container {
+        max-height: 200px; /* Maximum height for screens 480px and below */
+    }
+    
+    .slide {
+        height: 150px; /* Adjust the image height for screens 480px and below */
+    }
+}
+
+/* Add this to your CSS */
+.offers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 60vh;
+}
+
+.offers-deals {
+    width: 100%;
+    max-width: 400px; /* Set a maximum width for better mobile readability */
+    padding: 20px;
+    text-align: center;
+    border: 3px solid white;
+}
+
+.offers-deals h1 {
+    font-size: 18px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid img {
+    max-width: 100%;
+    height: 200px;
+}
+
+@media screen and (min-width: 769px) {
+    .offers-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .offers-deals {
+        width: calc(33.33% - 20px); /* Adjust the width as needed */
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .offers-deals {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+}
+
+.offers-deals {
+    /* ... */
+    animation: slide-in-from-left 2s;
+  }
+  
+  @keyframes slide-in-from-left {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* CSS for image links */
+.image-grid a {
+    text-decoration: none;
+    transition: transform 0.3s; /* Apply a transition to the transform property */
+}
+
+.image-grid a:hover {
+    transform: scale(1.05); /* Scale the image on hover for a subtle zoom effect */
+}
+
+/* CSS for the cart */
+/* CSS for the cart */
+.cart {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Horizontally center the cart icon */
+    align-items: center; /* Vertically center the cart icon */
+}
+/* Define the animation */
+@keyframes slide-in-from-left {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Apply the animation to the cart */
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slide-in-from-left 1s; /* Use the keyframes animation */
+}
+
+
+.fixed-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    background-color: white; /* Add background color as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+.cart a {
+    text-decoration: none;
+}
+
+.cart p {
+    margin: 0 10px;
+}
+
+.cart-number {
+    background-color: black;
+    color: white;
+    padding: 8px 16px; /* Increase the padding to make the cart icon larger */
+    border-radius: 50%;
+    font-size: 16px; /* Increase the font size for the cart number */
+}
+
+/* CSS for the cart icon */
+.cart-icon {
+    font-size: 32px; /* Increase the font size for the cart icon */
+}
+
+.product-section {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+    gap: 20px; /* Spacing between grid items */
+}
+
+.product-item {
+    text-align: center;
+    border: 5px solid white;
+    background-color: skyblue;
+}
+
+
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid white;
+    transition: border 0.3s, transform 0.3s, box-shadow 0.3s; /* Add a transition for the border, transform, and box-shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img:hover {
+    border: 1px solid #0074cc;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow on hover */
+}
+
+
+
+.product-item h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+
+/* Style the cart-option container */
+/* Style the cart-option container */
+.product-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cart-option {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80px;
+}
+
+
+/* Style the quantity input */
+.cart-option input {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style the increment and decrement buttons */
+.cart-option button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+/* Style the Add to Cart button */
+.product-item button.cart {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #0074cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Center the text inside the Add to Cart button */
+.product-item button.cart {
+    text-align: center;
+}
+
+/* On hover styles for buttons */
+.cart-option button:hover,
+.product-item button.cart:hover {
+    background-color: #0056a6;
+}
+
+/* Style the footer */
+footer {
+    margin-top: 14px;
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+  }
+  
+  /* Center-align the "Back to top" link */
+  .footer-title {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0074cc; /* Use your brand's color for links */
+    text-decoration: none;
+  }
+  
+  /* Style the footer items container */
+  .footer-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Style the footer item lists */
+  .footer-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style the footer item list headings */
+  .footer-items h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the footer item links */
+  .footer-items a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* On hover styles for links */
+  .footer-items a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Create columns for small screens */
+  @media screen and (max-width: 768px) {
+    .footer-items ul {
+      flex: 1;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .product-section {
+        grid-template-columns: 1fr; /* Display in a single column */
+    }
+}
+
+/* Define the animation */
+@keyframes scale-in {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply the animation to the cart button */
+.product-item button.cart.added {
+    animation: scale-in 0.5s;
+}
+/* Style the footer logo */
+.footer-logo {
+    display: flex;
+    align-items: left; /* Vertically center the logo */
+    margin-right: 20px; /* Add some spacing to the right of the logo */
+    margin-left: 0px;
+}
+
+.footer-logo img {
+    max-width: 100px; /* Set the maximum width of the logo */
+    height: 60px; /* Maintain the aspect ratio of the logo */
+    margin-top: 30px;
+    margin-left: 0px;
+}
+
+.product-price .original-price {
+    text-decoration: line-through;
+}
+
